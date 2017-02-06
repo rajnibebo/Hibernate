@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">rajni</property>
+        <property name="hibernate.connection.url">jdbc:postgresql:hib5.2</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="com.recipies.hibernate.basics.Book"/>
+        <mapping class="com.recipies.hibernate.basics.Customer"/>
+        <mapping class="com.recipies.hibernate.basics.Order"/>
+        <mapping class="com.recipies.hibernate.basics.embedding.AssociativeOrder"/>
+        <mapping class="com.recipies.hibernate.basics.embeddingassociations.Employee"/>
+        <mapping class="com.recipies.hibernate.basics.embeddingassociations.EmployeeAddress"/>
+        <mapping class="com.action.hibernate.basics.Message"/>
+        <mapping class="com.action.hibernate.customtypes.BuyerItem"/>
+    </session-factory>
+</hibernate-configuration>

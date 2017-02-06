@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">rajni</property>
+        <property name="hibernate.connection.url">jdbc:postgresql:inheritancemapping</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="com.rajni.inheritanceMapping.implicitpolymorphism.CreditCard"/>
+        <mapping class="com.rajni.inheritanceMapping.implicitpolymorphism.BankAccount"/>
+        <mapping class="com.rajni.inheritanceMapping.implicitpolymorphism.BillingDetails"/>
+        <mapping class="com.rajni.inheritanceMapping.implicitpolymorphism.User"/>
+        <mapping class="com.rajni.inheritanceMapping.implicitunion.User1"/>
+        <mapping class="com.rajni.inheritanceMapping.implicitunion.CommercialAddress"/>
+        <mapping class="com.rajni.inheritanceMapping.implicitunion.ResidentialAddress"/>
+        <mapping class="com.rajni.inheritanceMapping.tableperclasshierachy.Bank"/>
+        <mapping class="com.rajni.inheritanceMapping.tableperclasshierachy.Credit"/>
+        <mapping class="com.rajni.inheritanceMapping.tablepersubclass.Card"/>
+        <mapping class="com.rajni.inheritanceMapping.tablepersubclass.Account"/>
+        <mapping class="com.rajni.inheritanceMapping.mixin.BankAccountInfo"/>
+        <mapping class="com.rajni.inheritanceMapping.mixin.CreditCardInfo"/>
+    </session-factory>
+</hibernate-configuration>
