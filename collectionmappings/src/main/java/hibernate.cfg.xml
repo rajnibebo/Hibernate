@@ -15,5 +15,8 @@
         <mapping class="com.hibernate.action.collectionmappings.set.Product"/>
         <mapping class="com.hibernate.action.collectionmappings.idbag.ProductBag"/>
         <mapping class="com.hibernate.action.collectionmappings.list.ProductList"/>
+        <mapping class="com.hibernate.action.collectionmappings.mapwithembedded.ProductMap"/>
+        <mapping class="com.hibernate.action.collectionmappings.map.ProductMapSimple"/>
+        <mapping class="com.hibernate.action.collectionmappings.mapsorted.ProductSortedMap"/>
     </session-factory>
 </hibernate-configuration>
