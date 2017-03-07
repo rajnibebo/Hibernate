@@ -19,6 +19,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Formula;
+
 import com.rajni.ems.entities.Designation;
 import com.rajni.ems.entities.company.CompanyUnit;
 
@@ -32,7 +34,7 @@ public class Employee {
 	@Id
 	@GeneratedValue
 	@Column(name = "EMPLOYEE_ID")
-	private Long empId;
+	private Long employeeID;
 	@OneToOne(cascade = CascadeType.ALL)
 	@PrimaryKeyJoinColumn
 	private PersonalDetails personalDetails;
@@ -44,16 +46,18 @@ public class Employee {
 	@OneToOne
 	@JoinColumn(name = "EMP_DESIGNATION_ID")
 	private Designation designation;
-	public Long getEmpId() {
-		return empId;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "DATE_OF_BIRTH")
+	private Date dateOfBirth;
+	@Formula("date_part('year',age(dateOfBirth))")
+	private int age;
+	
+	public Long getEmployeeID() {
+		return employeeID;
 	}
 
-	public void setEmpId(Long empId) {
-		this.empId = empId;
-	}
-
-	public PersonalDetails getPersonalDetails() {
-		return personalDetails;
+	public void setEmployeeID(Long empId) {
+		this.employeeID = empId;
 	}
 
 	public void setPersonalDetails(PersonalDetails personalDetails) {
@@ -82,6 +86,22 @@ public class Employee {
 
 	public void setDesignation(Designation designation) {
 		this.designation = designation;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 }

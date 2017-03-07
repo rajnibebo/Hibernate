@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 /**
  * @author rajni.ubhi
- *
+ * 
  */
 @Entity
 @Table(name = "DESIGNATION")

@@ -13,13 +13,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Target;
+import org.rajni.ems.entities.IAddress;
+import org.rajni.ems.entities.IPhone;
+
 /**
  * @author rajni.ubhi
  *
  */
 @Entity
 @Table(name = "ADDRESS")
-public class Address {
+public class Address implements IAddress{
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	@Column(name = "ADDRESS_ID")
@@ -35,11 +39,13 @@ public class Address {
 	@Column(name = "ZIPCODE")
 	private String zipcode;
 	@Embedded
-	private Phone landlineNumber;
+	@Target(Phone.class)
+	private IPhone landlineNumber;
 	@Embedded
 	@AttributeOverrides({@AttributeOverride(column=@Column(name="MOB_AREA_CODE"),name="areaCode"),
 		@AttributeOverride(column=@Column(name="MOB_PHONE_NUMBER"),name="phoneNumber")})
-	private Phone mobileNumber;
+	@Target(Phone.class)
+	private IPhone mobileNumber;
 	public Long getAddressId() {
 		return addressId;
 	}
@@ -76,16 +82,16 @@ public class Address {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	public Phone getLandlineNumber() {
+	public IPhone getLandlineNumber() {
 		return landlineNumber;
 	}
-	public void setLandlineNumber(Phone landlineNumber) {
+	public void setLandlineNumber(IPhone landlineNumber) {
 		this.landlineNumber = landlineNumber;
 	}
-	public Phone getMobileNumber() {
+	public IPhone getMobileNumber() {
 		return mobileNumber;
 	}
-	public void setMobileNumber(Phone mobileNumber) {
+	public void setMobileNumber(IPhone mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	

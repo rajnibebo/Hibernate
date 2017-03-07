@@ -15,6 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Formula;
+import org.rajni.ems.employee.IPersonalDetails;
 
 /**
  * @author rajni.ubhi
@@ -22,10 +23,10 @@ import org.hibernate.annotations.Formula;
  */
 @Entity
 @Table(name = "EMP_PERSONAL_DETAILS")
-public class PersonalDetails {
+public class PersonalDetails implements IPersonalDetails {
 	@Id
 	@Column(name = "EMP_ID")
-	private Long empId;
+	private Long employeeID;
 	@Column(name = "FIRST_NAME")
 	private String firstName;
 	@Column(name = "LAST_NAME")
@@ -49,11 +50,11 @@ public class PersonalDetails {
 	@Column(name = "SPOUSE_NAME")
 	private String spouseName;
 	
-	public Long getEmpId() {
-		return empId;
+	public Long getEmployeeID() {
+		return employeeID;
 	}
-	public void setEmpId(Long empId) {
-		this.empId = empId;
+	public void setEmpId(Long employeeID) {
+		this.employeeID = employeeID;
 	}
 	public String getFirstName() {
 		return firstName;

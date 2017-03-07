@@ -3,23 +3,18 @@
  */
 package com.rajni.ems.entities.employee;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.rajni.ems.entities.CommercialAddress;
 
 /**
  * @author rajni.ubhi
  *
  */
 @Entity
-@Table(name = "EMPLOYER_DETAILS")
+@Table(name = "PREV_EMPLOYER_DETAILS")
 public class Employer {
 	@Id
 	@GeneratedValue
@@ -27,9 +22,6 @@ public class Employer {
 	private Long employerId;
 	@Column(name = "EMPLOYER_NAME")
 	private String employerName;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "EMPLOYER_ADDR_ID")
-	private CommercialAddress employerAddress;
 	@Column(name = "YEARS_OF_EXPERIENCE")
 	private int yearsOfExperience;
 	@Column(name = "IS_VALIDATED" , insertable = false)
@@ -46,12 +38,7 @@ public class Employer {
 	public void setEmployerName(String employerName) {
 		this.employerName = employerName;
 	}
-	public CommercialAddress getEmployerAddress() {
-		return employerAddress;
-	}
-	public void setEmployerAddress(CommercialAddress employerAddress) {
-		this.employerAddress = employerAddress;
-	}
+
 	public int getYearsOfExperience() {
 		return yearsOfExperience;
 	}
