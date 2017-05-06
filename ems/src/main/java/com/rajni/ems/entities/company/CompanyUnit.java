@@ -40,7 +40,7 @@ public class CompanyUnit {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "ESTABLIHED_DATE")
 	private Date establishedDate;
-	@Basic
+	@Basic(optional = true)
 	private int numberOfEmployees;
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Employee> employees = new HashSet<Employee>();
